@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+ {# Özelleştirilmiş CSS dosyasını ekleyin #}
+    <link rel="stylesheet" href="{{asset("templates/assets/bootsrap.min.css")}}">
+    
+    {# Özelleştirilmiş JS dosyasını ekleyin #}
+    <script src="{{ asset('assets/custom.js') }}"></script>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+    {% endblock %}
+
+    {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.min.js"></script>
+    {% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-daryarn add bootstrap --devk bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Firma Adı</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Anasayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="jobs">İşlerimiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about">Biz kimiz</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="login">Giriş Yap</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login">Çıkış Yap</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="shipments">Kargolarım</a>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    {% block body %}{% endblock %}
+
+
+<footer class="bg-dark text-light py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Ödeme Yöntemleri</h3>
+                <div class="d-flex">
+                    <img src="resim1.png" alt="Ödeme Yöntemi 1" class="img-fluid me-2">
+                    <img src="resim2.png" alt="Ödeme Yöntemi 2" class="img-fluid me-2">
+                    <img src="resim3.png" alt="Ödeme Yöntemi 3" class="img-fluid me-2">
+                    <img src="resim4.png" alt="Ödeme Yöntemi 4" class="img-fluid me-2">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3>İletişim Bilgileri</h3>
+                <p>Adres: Örnek Adres</p>
+                <p>Telefon: +90 123 456 7890</p>
+                <p>E-posta: info@example.com</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
