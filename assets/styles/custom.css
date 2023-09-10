@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+#login {
+    display: block; /* Varsayılan olarak bağlantıyı göster */
+}
+
+#logout {
+    display: none; /* Varsayılan olarak bağlantıyı gizle */
+}

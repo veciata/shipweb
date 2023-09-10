@@ -13,6 +13,17 @@ class ShipController extends AbstractController
     public function index()
     {
         return $this->render(
-            'base.html.twig');
+            'index.html.twig');
+    }
+    #[Route('/about', name: 'about')]
+    public function about()
+    {
+        return $this->render(
+            'about.html.twig');
+    }
+    #[Route('/jobs', name: 'jobs')]
+    public function jobs()  {
+        return$this->render(
+            'jobs.html.twig');
     }
 }

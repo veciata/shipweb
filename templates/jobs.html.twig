@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<header class="bg-light text-center py-5">
+        <div class="container">
+            <h1>İşlerimiz</h1>
+            <p>Kargof olarak gerçekleştirdiğimiz projelerden bazıları:</p>
+        </div>
+    </header>
+
+<section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="image1.jpg" class="card-img-top" alt="Proje 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Proje 1</h5>
+                            <p class="card-text">Proje 1 ile ilgili kısa açıklama.</p>
+                            <a href="#" class="btn btn-primary">Detaylar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="image2.jpg" class="card-img-top" alt="Proje 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Proje 2</h5>
+                            <p class="card-text">Proje 2 ile ilgili kısa açıklama.</p>
+                            <a href="#" class="btn btn-primary">Detaylar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="image3.jpg" class="card-img-top" alt="Proje 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Proje 3</h5>
+                            <p class="card-text">Proje 3 ile ilgili kısa açıklama.</p>
+                            <a href="#" class="btn btn-primary">Detaylar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+{% endblock %}
