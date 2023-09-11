@@ -34,13 +34,14 @@
             </div>
             <div class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="login-link">Giriş Yap</a>
+                <a class="nav-link" href="{{ app.user ? path('logout') : path('login') }}">
+                    {{ app.user ? 'Çıkış Yap' : 'Giriş Yap' }}
+                </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="logout-link">Çıkış Yap</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"id="shipments">Kargolarım</a>
+                    <a class="nav-link" href="/#">
+                        {{ app.user ? 'Kargolarım' : '' }}
+                    </a>
                 </li>
             </div>
         </div>
