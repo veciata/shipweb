@@ -8,3 +8,6 @@ logout:
 login:
     path: /login
 
+index:
+    path: /
+    controller: App\Controller\ShipController::index

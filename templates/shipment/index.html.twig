@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Kargo Bilgisi Oluştur</h2>
+
+    {{ form_start(form) }}
+
+    <div class="form-group">
+        {{ form_label(form.gonderenAdi, 'Gönderen Adı') }}
+        {{ form_widget(form.gonderenAdi, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.gonderenAdi) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.aliciAdi, 'Alıcı Adı') }}
+        {{ form_widget(form.aliciAdi, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.aliciAdi) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.gonderenAdres, 'Gönderen Adresi') }}
+        {{ form_widget(form.gonderenAdres, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.gonderenAdres) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.aliciAdres, 'Alıcı Adresi') }}
+        {{ form_widget(form.aliciAdres, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.aliciAdres) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.takipNumarasi, 'Takip Numarası') }}
+        {{ form_widget(form.takipNumarasi, {'attr': {'class': 'form-control', 'readonly': 'readonly'}}) }}
+        {{ form_errors(form.takipNumarasi) }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kargo Bilgisi Oluştur</button>
+    
+    {{ form_end(form) }}
+{% endblock %}
