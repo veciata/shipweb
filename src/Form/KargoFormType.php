@@ -7,15 +7,30 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use function PHPSTORM_META\type;
+
 class KargoFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('tracknumber')
+            ->add('nereden',ChoiceType::class, [
+                'choices'  => [
+                    'Türkiye' => 0,
+                    'Avrupa' => 1,
+                    'Asya' => 2,                    
+                ],
+                'required'=>true,])
+            ->add('nereye',ChoiceType::class, [
+                'choices'  => [
+                    'Türkiye' => 0,
+                    'Avrupa' => 1,
+                    'Asya' => 2,                    
+                ],
+                'required'=>true,])
             ->add('sender')
-            ->add('description')
             ->add('receiver')
+            ->add('description')
         ;
     }
 

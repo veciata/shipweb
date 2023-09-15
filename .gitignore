@@ -14,3 +14,4 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+%veciata%Documents%laravel_php%shipweb/chat_history/history.sqlite
