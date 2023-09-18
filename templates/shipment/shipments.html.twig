@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <h2>Gönderiler</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Gönderi kodu</th>
+                <th>Gönderen Adı</th>
+                <th>Alıcı Adı</th>
+                <th>Nereden</th>
+                <th>Nereye</th>
+                <th>Açıklama</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for shipment in shipments %}
+                <tr>
+                    <td>{{ shipment.tracknumber }}</td>
+                    <td>{{ shipment.sender }}</td>
+                    <td>{{ shipment.receiver }}</td>
+                    <td>{{ shipment.sender_country }}</td>
+                    <td>{{ shipment.receiver_country }}</td>
+                    <td>{{ shipment.description }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+   <a href="{{ path('app_shipment') }}" class="btn btn-primary">Kargo oluştur</a>
+
+</div>
+{% endblock %}

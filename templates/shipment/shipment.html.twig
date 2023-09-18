@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2>Kargo Bilgisi Oluştur</h2>
+            <form method="post">
+                {% if not app.user %} 
+                    <div class="form-group">
+                        <label for="sender" class="form-label">Gönderen Adı</label>
+                        <input type="text" id="sender" name="sender" class="form-control">
+                    </div>
+                {% endif %}
+
+                <div class="form-group">
+                    <label for="receiver" class="form-label">Alıcı Adı</label>
+                    <input type="text" id="receiver" name="receiver" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="nereden" class="form-label">Nereden</label>
+                    <select id="nereden" name="nereden" class="form-control">
+                        <option selected>Ülke Seçin</option>
+                        <option value="turkiye">Türkiye</option>
+                        <option value="abd">ABD</option>
+                        <option value="almanya">Almanya</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="nereye" class="form-label">Nereye</label>
+                    <select id="nereye" name="nereye" class="form-control">
+                        <option selected>Ülke Seçin</option>
+                        <option value="turkiye">Türkiye</option>
+                        <option value="abd">ABD</option>
+                        <option value="almanya">Almanya</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="aciklama" class="form-label">Açıklama</label>
+                    <textarea class="form-control" id="aciklama" name="aciklama" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Kargo Bilgisi Oluştur</button><a href="{{ path('app_shipments') }}" class="btn btn-secondary">Mevcut kargolarım</a>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

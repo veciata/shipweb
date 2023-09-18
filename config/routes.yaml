@@ -11,3 +11,9 @@ login:
 index:
     path: /
     controller: App\Controller\ShipController::index
+shipment:
+    path: /shipment
+    controller: App\Controller\ShipmentController::shipment
+shipments:
+    path: /shipments
+    controller: App\Controller\ShipmentController::shipments

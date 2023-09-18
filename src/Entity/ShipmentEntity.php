@@ -26,10 +26,10 @@ class ShipmentEntity
     private ?string $description = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $nereden = null; // New property for origin
+    private ?string $sender_country = null; // New property for origin
 
     #[ORM\Column(length: 255)]
-    private ?string $nereye = null; // New property for destination
+    private ?string $reciever_country = null; // New property for destination
 
     public function getId(): ?int
     {
@@ -84,27 +84,29 @@ class ShipmentEntity
         return $this;
     }
 
-    public function getNereden(): ?string
+    public function getsender_country(): ?string
     {
-        return $this->nereden;
+        return $this->sender_country;
     }
 
-    public function setNereden(string $nereden): static
+    public function setsender_country(string $sender_country): static
     {
-        $this->nereden = $nereden;
+        $this->sender_country = $sender_country;
 
         return $this;
     }
 
-    public function getNereye(): ?string
+    public function getreciever_country(): ?string
     {
-        return $this->nereye;
+        return $this->reciever_country;
     }
 
-    public function setNereye(string $nereye): static
+    public function setreciever_country(string $reciever_country): static
     {
-        $this->nereye = $nereye;
+        $this->reciever_country = $reciever_country;
 
         return $this;
     }
+
+
 }

@@ -26,4 +26,5 @@ class ShipController extends AbstractController
         return$this->render(
             'jobs.html.twig');
     }
+    
 }
