@@ -21,8 +21,15 @@ class ShipmentEntity
 
     #[ORM\Column(length: 255)]
     private ?string $receiver = null;
+
     #[ORM\Column(length: 255)]
     private ?string $description = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $nereden = null; // New property for origin
+
+    #[ORM\Column(length: 255)]
+    private ?string $nereye = null; // New property for destination
 
     public function getId(): ?int
     {
@@ -64,6 +71,7 @@ class ShipmentEntity
 
         return $this;
     }
+
     public function getDescription(): ?string
     {
         return $this->description;
@@ -72,6 +80,30 @@ class ShipmentEntity
     public function setDescription(string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getNereden(): ?string
+    {
+        return $this->nereden;
+    }
+
+    public function setNereden(string $nereden): static
+    {
+        $this->nereden = $nereden;
+
+        return $this;
+    }
+
+    public function getNereye(): ?string
+    {
+        return $this->nereye;
+    }
+
+    public function setNereye(string $nereye): static
+    {
+        $this->nereye = $nereye;
 
         return $this;
     }

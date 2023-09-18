@@ -14,20 +14,8 @@ class KargoFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nereden',ChoiceType::class, [
-                'choices'  => [
-                    'Türkiye' => 0,
-                    'Avrupa' => 1,
-                    'Asya' => 2,                    
-                ],
-                'required'=>true,])
-            ->add('nereye',ChoiceType::class, [
-                'choices'  => [
-                    'Türkiye' => 0,
-                    'Avrupa' => 1,
-                    'Asya' => 2,                    
-                ],
-                'required'=>true,])
+            ->add('nereden')
+            ->add('nereye')
             ->add('sender')
             ->add('receiver')
             ->add('description')
