@@ -6,49 +6,39 @@
         <div class="col-md-6 offset-md-3">
             <h2>Kargo Bilgisi Oluştur</h2>
             <form method="post">
-               {% if not app.user %}
-    <div class="form-group">
-        <label for="sender" class="form-label">Gönderen Adı</label>
-        <input type="text" id="sender" name="sender" class="form-control">
-    </div>
+    {% if not app.user %}
+    <label for="sender">Gönderen Adı</label>
+    <input type="text" id="sender" name="sender" class="form-control">
     {% else %}
-        <div class="form-group">
-            <label for="sender" class="form-label">Gönderen Adı</label>
-            <input type="text" id="sender" name="sender" class="form-control" value="{{ app.user.username }}">
-        </div>
+    <label for="sender">Gönderen Adı</label>
+    <input type="text" id="sender" name="sender" class="form-control" value="{{ app.user.username }}">
     {% endif %}
 
+    <label for="receiver">Alıcı Adı</label>
+    <input type="text" id="receiver" name="receiver" class="form-control">
 
-                <div class="form-group">
-                    <label for="receiver" class="form-label">Alıcı Adı</label>
-                    <input type="text" id="receiver" name="receiver" class="form-control">
-                </div>
+    <label for="sender_country">Nereden</label>
+    <select id="sender_country" name="sender_country" class="form-control">
+        <option selected>Ülke Seçin</option>
+        <option value="turkiye">Türkiye</option>
+        <option value="abd">ABD</option>
+        <option value="almanya">Almanya</option>
+    </select>
 
-                <div class="form-group">
-                    <label for="sender_country" class="form-label">Nereden</label>
-                    <select id="sender_country" name="sender_country" class="form-control">
-                        <option selected>Ülke Seçin</option>
-                        <option value="turkiye">Türkiye</option>
-                        <option value="abd">ABD</option>
-                        <option value="almanya">Almanya</option>
-                    </select>
-                </div>
+    <label for="receiver_country">Nereye</label>
+    <select id="receiver_country" name="receiver_country" class="form-control">
+        <option selected>Ülke Seçin</option>
+        <option value="turkiye">Türkiye</option>
+        <option value="abd">ABD</option>
+        <option value="almanya">Almanya</option>
+    </select>
 
-                <div class="form-group">
-                    <label for="receiver_country" class="form-label">Nereye</label>
-                    <select id="receiver_country" name="receiver_country" class="form-control">
-                        <option selected>Ülke Seçin</option>
-                        <option value="turkiye">Türkiye</option>
-                        <option value="abd">ABD</option>
-                        <option value="almanya">Almanya</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="aciklama" class="form-label">Açıklama</label>
-                    <textarea class="form-control" id="aciklama" name="aciklama" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Kargo Bilgisi Oluştur</button>
-                <a href="{{ path('app_shipments') }}" class="btn btn-secondary">Mevcut kargolarım</a>
+    <label for="aciklama">Açıklama</label>
+    <textarea class="form-control" id="aciklama" name="aciklama" rows="4" required></textarea>
+
+    <button type="submit" class="btn btn-primary">Kargo Bilgisi Oluştur</button>
+    <a href="{{ path('app_shipments') }}" class="btn btn-secondary">Mevcut kargolarım</a>
+</form>
 
             </form>
         </div>
