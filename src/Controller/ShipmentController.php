@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\KargoFormType; // Import your form type
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class ShipmentController extends AbstractController
 {
@@ -25,10 +24,10 @@ class ShipmentController extends AbstractController
 
             // Create a new ShipmentEntity object and set its properties
             $shipment = new ShipmentEntity();
-            $shipment->setsender_country($formData['sender_country']);
-            $shipment->setreciever_country($formData['reciever_country']);
             $shipment->setSender($formData['sender']);
             $shipment->setReceiver($formData['receiver']);
+            $shipment->setsender_country($formData['sender_country']);
+            $shipment->setreciever_country($formData['reciever_country']);
             $shipment->setDescription($formData['description']);
 
             // Persist the entity to the database
@@ -36,6 +35,7 @@ class ShipmentController extends AbstractController
             $entityManager->flush();
 
             // Redirect or return a response
+            return $this->redirectToRoute('app_shipment');
             // For example, you can redirect to a success page or render a confirmation message
         }
 

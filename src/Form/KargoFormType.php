@@ -14,10 +14,10 @@ class KargoFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nereden')
-            ->add('nereye')
             ->add('sender')
             ->add('receiver')
+            ->add('sender_country')
+            ->add('receiver_country')
             ->add('description')
         ;
     }

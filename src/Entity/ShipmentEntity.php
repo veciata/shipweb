@@ -2,10 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\ShipmentEntityRepository;
+use App\Repository\USerRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: ShipmentEntityRepository::class)]
+#[ORM\Table(name: '`shipment_entity`')]
 class ShipmentEntity
 {
     #[ORM\Id]
