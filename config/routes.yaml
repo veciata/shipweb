@@ -17,4 +17,3 @@ shipment:
 shipments:
     path: /shipments
     controller: App\Controller\ShipmentController::shipments
-

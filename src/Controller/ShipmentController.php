@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\KargoFormType; // Import your form type
+use App\Repository\ShipmentEntityRepository; 
 
 class ShipmentController extends AbstractController
 {
@@ -35,7 +36,7 @@ class ShipmentController extends AbstractController
             $entityManager->flush();
 
             // Redirect or return a response
-            return $this->redirectToRoute('app_shipment');
+            return $this->redirectToRoute('/shipments');
             // For example, you can redirect to a success page or render a confirmation message
         }
 
@@ -45,18 +46,18 @@ class ShipmentController extends AbstractController
         ]);
     }
     
-    #[Route('/shipments', name: 'app_shipments')]
-    public function shipments(): Response
-    {
-        // Verileri çekmek için Repository'yi kullanın
-        $shipments = [];
+#[Route('/shipments', name: 'app_shipments')]
+public function shipments(ShipmentEntityRepository $shipmentRepository): Response 
+{
+  $shipments = $shipmentRepository->findAll();
+  
+  return $this->render('shipment/shipments.html.twig', [
+    'controller_name' => 'ShipmentController',
+    'shipments' => $shipments,
+  ]);
+}
 
-        return $this->render('shipment/shipments.html.twig', [
-            'controller_name' => 'ShipmentController',
-            'shipments' => $shipments, 
-        ]);
-    }
-
+   
     private function generateUniqueTrackingNumber(): string
     {
         $uniqueText = uniqid('', true);

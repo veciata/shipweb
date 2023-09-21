@@ -33,7 +33,7 @@ class ShipmentEntity
     private ?string $sender_country = null; // New property for origin
 
     #[ORM\Column(length: 255)]
-    private ?string $reciever_country = null; // New property for destination
+    private ?string $receiver_country = null; // New property for destination
 
     public function getId(): ?int
     {
@@ -100,14 +100,14 @@ class ShipmentEntity
         return $this;
     }
 
-    public function getreciever_country(): ?string
+    public function getreceiver_country(): ?string
     {
-        return $this->reciever_country;
+        return $this->receiver_country;
     }
 
-    public function setreciever_country(string $reciever_country): static
+    public function setreceiver_country(string $receiver_country): static
     {
-        $this->reciever_country = $reciever_country;
+        $this->receiver_country = $receiver_country;
 
         return $this;
     }
