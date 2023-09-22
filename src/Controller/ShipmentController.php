@@ -20,6 +20,7 @@ class ShipmentController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             // Get the form data
             $formData = $form->getData();
 
@@ -28,7 +29,7 @@ class ShipmentController extends AbstractController
             $shipment->setSender($formData['sender']);
             $shipment->setReceiver($formData['receiver']);
             $shipment->setsender_country($formData['sender_country']);
-            $shipment->setreciever_country($formData['reciever_country']);
+            $shipment->setreceiver_country($formData['reciever_country']);
             $shipment->setDescription($formData['description']);
 
             // Persist the entity to the database
