@@ -8,30 +8,36 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Form\KargoFormType; // Import your form type
+use App\Form\KargoFormType; 
 use App\Repository\ShipmentEntityRepository; 
 
 class ShipmentController extends AbstractController
 {
+    public function generateUniqueTrackingNumber(): string
+    {
+        $uniqueNumber = mt_rand(1000000000, 9999999999); 
+        return (string)$uniqueNumber; 
+    }
     #[Route('/shipment', name: 'app_shipment')]
     public function shipment(Request $request, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(KargoFormType::class);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-
+        if ($form->isSubmitted()) {
+            echo("submited");
             // Get the form data
             $formData = $form->getData();
-
+            $trackingNumber =  $this->generateUniqueTrackingNumber();
             // Create a new ShipmentEntity object and set its properties
             $shipment = new ShipmentEntity();
-            $shipment->setSender($formData['sender']);
-            $shipment->setReceiver($formData['receiver']);
+            $shipment->settracknumber($trackingNumber);            
+            $shipment->setsender($formData['sender']);
+            $shipment->setreceiver($formData['receiver']);
             $shipment->setsender_country($formData['sender_country']);
             $shipment->setreceiver_country($formData['reciever_country']);
-            $shipment->setDescription($formData['description']);
-
+            $shipment->setdescription($formData['description']);
+            
             // Persist the entity to the database
             $entityManager->persist($shipment);
             $entityManager->flush();
@@ -59,9 +65,5 @@ public function shipments(ShipmentEntityRepository $shipmentRepository): Respons
 }
 
    
-    private function generateUniqueTrackingNumber(): string
-    {
-        $uniqueText = uniqid('', true);
-        return substr($uniqueText, 0, 10);
-    }
+  
 }

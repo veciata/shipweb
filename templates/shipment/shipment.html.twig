@@ -11,7 +11,7 @@
     <input type="text" id="sender" name="sender" class="form-control">
     {% else %}
     <label for="sender">Gönderen Adı</label>
-    <input type="text" id="sender" name="sender" class="form-control" value="{{ app.user.username }}">
+    <input type="text" id="sender" name="sender" class="form-control" value="{{ app.user.username }}" readonly>
     {% endif %}
 
     <label for="receiver">Alıcı Adı</label>
@@ -33,8 +33,8 @@
         <option value="Almanya">Almanya</option>
     </select>
 
-    <label for="aciklama">Açıklama</label>
-    <textarea class="form-control" id="aciklama" name="aciklama" rows="4" required></textarea>
+    <label for="description">Açıklama</label>
+    <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
 
     <button type="submit" class="btn btn-primary">Kargo Bilgisi Oluştur</button>
     <a href="{{ path('app_shipments') }}" class="btn btn-secondary">Mevcut kargolarım</a>
