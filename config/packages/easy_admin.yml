@@ -1,8 +1,0 @@
-easy_admin:
-    entities:
-        - class: App\Entity\ShipmentEntity
-          label: 'ShipmentEntity'
-        - class: App\Entity\User
-        
-
-

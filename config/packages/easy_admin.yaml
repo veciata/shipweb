@@ -1,0 +1,11 @@
+easy_admin:
+    design:
+        menu:
+            - { route: 'admin', label: 'Dashboard' }
+            - { entity: 'App\Entity\ShipmentEntity', label: 'Shipments' }
+    entities:
+        ShipmentEntity:
+            class: App\Entity\ShipmentEntity
+            label: 'Shipment'
+    controllers:
+        ShipmentEntity: App\Controller\Admin\ShipmentEntityCrudController

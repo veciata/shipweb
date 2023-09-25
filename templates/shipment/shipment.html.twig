@@ -37,7 +37,9 @@
     <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
 
     <button type="submit" class="btn btn-primary">Kargo Bilgisi Oluştur</button>
-    <a href="{{ path('app_shipments') }}" class="btn btn-secondary">Mevcut kargolarım</a>
+    {% if app.user %}
+        <a href="{{ path('app_shipments') }}" class="btn btn-secondary">Mevcut kargolarım</a>
+    {% endif %}
 </form>
 
             </form>
