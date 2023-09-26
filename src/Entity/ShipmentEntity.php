@@ -19,13 +19,12 @@ class ShipmentEntity
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 10)]
+    #[ORM\Column(length: 11)]
     private string $tracknumber ;
 
     public function __construct()
     {
-        //generate random trackumber
-        $this->tracknumber = mt_rand(1000000000, 9999999999);
+        $this->tracknumber = (string) mt_rand(1000000000, 9999999999);
     }
 
     #[ORM\Column(length: 255)]
@@ -50,7 +49,7 @@ class ShipmentEntity
         return $this->id;
     }
 
-    public function getTracknumber(): int
+    public function getTracknumber(): ?string
     {
         return $this->tracknumber;
     }

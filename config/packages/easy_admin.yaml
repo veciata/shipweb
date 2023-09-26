@@ -2,10 +2,13 @@ easy_admin:
     design:
         menu:
             - { route: 'admin', label: 'Dashboard' }
-            - { entity: 'App\Entity\ShipmentEntity', label: 'Shipments' }
+            - { entity: 'App\Entity\ShipmentEntity', label: 'ShipmentEntity' }
     entities:
         ShipmentEntity:
             class: App\Entity\ShipmentEntity
-            label: 'Shipment'
+            form:
+                fields:
+                    - { property: 'tracknumber', type: 'text' }
+                    
     controllers:
         ShipmentEntity: App\Controller\Admin\ShipmentEntityCrudController

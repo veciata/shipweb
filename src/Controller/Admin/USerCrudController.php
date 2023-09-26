@@ -13,18 +13,4 @@ class USerCrudController extends AbstractCrudController
     {
         return USer::class;
     }
-    public function configureCrud(Crud $crud): Crud
-    {
-        return $crud->setDefaultSort(['id' => 'DESC']);
-    }
-    /*
-    public function configureFields(string $pageName): iterable
-    {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
-    }
-    */
 }

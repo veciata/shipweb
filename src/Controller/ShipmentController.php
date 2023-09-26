@@ -20,21 +20,13 @@ class ShipmentController extends AbstractController
     #[Route('/shipment', name: 'app_shipment')]
     public function shipment(Request $request, EntityManagerInterface $entityManager): Response
     {
-      $tryme= new ShipmentEntity();
-      $tryme->setsender("ac");
-      $tryme->setreceiver("bb");
-      $tryme->setsender_country("Türkiye");
-      $tryme->setreceiver_country("Almanya");
-      $tryme->setdescription("yees oldu be");
-      $entityManager->persist($tryme);
-      $entityManager->flush();
-          $message = "Kargo başarıyla oluşturuldu.";
-
-          return $this->render('shipment/shipment.html.twig', [
-            'message' => $message,]);
-          
       $form = $this->createForm(KargoFormType::class);
       $form->handleRequest($request);
+        return $this->render('shipment/shipment.html.twig', [
+            'controller_name' => 'ShipmentController',
+            'form' => $form->createView(),
+        ]);
+      
 
       if ($form->isSubmitted() && $form->isValid()) {
          
@@ -51,7 +43,12 @@ class ShipmentController extends AbstractController
           // Persist the entity to the database
           $entityManager->persist($shipment);
           $entityManager->flush();
+          $message = "Kargo başarıyla oluşturuldu.";
+
+          return $this->render('shipment/shipment.html.twig', [
+            'message' => $message,]);
         }
+        
     }
     
 #[Route('/shipments', name: 'app_shipments')]
